@@ -45,3 +45,7 @@
 .forest {
     background-color: #5C872D;
 }
+
+.player {
+  opacity: 0.8;
+}

@@ -35,7 +35,8 @@ class App extends Component {
     let { grid, stats, resources } = this.state;
     grid[row][col] = {
       ...grid[row][col],
-      owner: PLAYER
+      owner: PLAYER,
+      level: grid[row][col].level + 1
     };
     stats = this.calculateStats(grid, stats);
     resources = this.calculateResources(stats, resources);

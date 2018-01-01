@@ -10,10 +10,16 @@ export const TYPE_SEA = 'sea';
 export const TYPE_MOUNTAIN = 'mountain';
 export const TYPE_LAND = 'land';
 export const TYPE_FOREST = 'forest';
-const SEA_TILE = { owner: null, type: TYPE_SEA };
-const LAND_TILE = { owner: null, type: TYPE_LAND };
-const MOUNTAIN_TILE = { owner: null, type: TYPE_MOUNTAIN };
-const FOREST_TILE = { owner: null, type: TYPE_FOREST };
+
+const EMPTY_TILE = {
+    owner: null,
+    level: 0,
+};
+
+const SEA_TILE = { ...EMPTY_TILE, type: TYPE_SEA };
+const LAND_TILE = { ...EMPTY_TILE, type: TYPE_LAND };
+const MOUNTAIN_TILE = { ...EMPTY_TILE, type: TYPE_MOUNTAIN };
+const FOREST_TILE = { ...EMPTY_TILE, type: TYPE_FOREST };
 
 export const GRID_CONFIG = range(ROWS).map(() => range(COLS).map(() => {
     let tile = SEA_TILE;
