@@ -1,4 +1,4 @@
-import { ROWS, COLS, PLAYER, CPU } from '../config';
+import { ROWS, COLS, CPU } from '../config';
 import { randomizer, range } from 'uvk';
 
 export const gridHelper = grid => {

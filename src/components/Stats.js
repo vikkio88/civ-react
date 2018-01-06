@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { PLAYER, CPU } from '../config';
+import { PLAYER } from '../config';
 
 
 export class Stats extends Component {

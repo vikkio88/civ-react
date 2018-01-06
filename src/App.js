@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { MapGrid } from './components/MapGrid';
 import { Stats } from './components/Stats';
@@ -29,7 +28,7 @@ class App extends Component {
   componentDidMount() {
     const stats = this.calculateStats(this.state.grid);
     const resources = this.calculateResources(stats, this.state.resources);
-    this.setState({ stats });
+    this.setState({ stats, resources });
   }
 
   click(row, col) {
@@ -40,7 +39,7 @@ class App extends Component {
     grid = helper.cpuTurn(grid);
     stats = this.calculateStats(grid, stats);
     resources = this.calculateResources(stats, resources);
-    this.setState({ grid, stats });
+    this.setState({ grid, stats, resources });
   }
 
   calculateStats(grid) {
@@ -72,6 +71,8 @@ class App extends Component {
       resources.population = Math.max(0, resources.population);
       resources.food = 0;
     }
+
+    return resources;
   }
   render() {
     const { grid, stats, resources } = this.state;
