@@ -21,6 +21,7 @@ class MapGrid extends Component {
                         className += ` ${currentTile.owner}`;
                         ownerFlag = `${ownerFlags[currentTile.owner]} ${currentTile.level}`;
                     }
+                    className += currentTile.actioned ? ' actioned' : '';
                 }
 
 

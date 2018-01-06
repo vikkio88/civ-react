@@ -14,6 +14,7 @@ export const TYPE_FOREST = 'forest';
 const EMPTY_TILE = {
     owner: null,
     level: 0,
+    actioned: false
 };
 
 const SEA_TILE = { ...EMPTY_TILE, type: TYPE_SEA };

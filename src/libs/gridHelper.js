@@ -1,8 +1,16 @@
 import { ROWS, COLS, PLAYER, CPU } from '../config';
-import { randomizer } from 'uvk';
+import { randomizer, range } from 'uvk';
 
 export const gridHelper = grid => {
     return {
+        applyToAll(modifier) {
+            return range(ROWS).map((_, rowIdx) => {
+                return range(COLS).map((_, colIdx) => {
+                    const currentTile = grid[rowIdx][colIdx];
+                    return modifier(currentTile);
+                });
+            });
+        },
         clicked(i, j, clicker) {
             const tile = grid[i][j];
             let { level, owner } = tile;
@@ -18,7 +26,8 @@ export const gridHelper = grid => {
             return {
                 ...tile,
                 owner,
-                level
+                level,
+                actioned: true
             };
         },
         cpuTurn(grid) {

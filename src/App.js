@@ -35,6 +35,7 @@ class App extends Component {
   click(row, col) {
     let { grid, stats, resources } = this.state;
     const helper = gridHelper(grid);
+    grid = helper.applyToAll(tile => { return { ...tile, actioned: false } });
     grid[row][col] = helper.clicked(row, col, PLAYER);
     grid = helper.cpuTurn(grid);
     stats = this.calculateStats(grid, stats);
