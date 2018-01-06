@@ -5,6 +5,7 @@ import { MapGrid } from './components/MapGrid';
 import { Stats } from './components/Stats';
 
 import { GRID_CONFIG, ROWS, COLS, PLAYER, CPU } from './config';
+import { gridHelper } from './libs/gridHelper';
 
 class App extends Component {
   state = {
@@ -31,13 +32,11 @@ class App extends Component {
     this.setState({ stats });
   }
 
-  flag(row, col) {
+  click(row, col) {
     let { grid, stats, resources } = this.state;
-    grid[row][col] = {
-      ...grid[row][col],
-      owner: PLAYER,
-      level: grid[row][col].level + 1
-    };
+    const helper = gridHelper(grid);
+    grid[row][col] = helper.clicked(row, col, PLAYER);
+    grid = helper.cpuTurn(grid);
     stats = this.calculateStats(grid, stats);
     resources = this.calculateResources(stats, resources);
     this.setState({ grid, stats });
@@ -77,7 +76,7 @@ class App extends Component {
     const { grid, stats, resources } = this.state;
     return (
       <div className="App">
-        <MapGrid rows={ROWS} cols={COLS} gridConfig={grid} onBoxClick={(row, col) => this.flag(row, col)} />
+        <MapGrid rows={ROWS} cols={COLS} gridConfig={grid} onBoxClick={(row, col) => this.click(row, col)} />
         <Stats stats={stats} resources={resources} />
       </div>
     );
