@@ -29,6 +29,6 @@ export const GRID_CONFIG = range(ROWS).map(() => range(COLS).map(() => {
     }
     return {
         ...tile,
-        owner: randomizer.chance(20) ? randomizer.pickOne([PLAYER, CPU]) : null
+        owner: randomizer.chance(10) ? randomizer.pickOne([PLAYER, CPU]) : null
     }
 }));

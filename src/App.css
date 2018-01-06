@@ -31,6 +31,10 @@
   height: 50px;
   background-color: #efefef;
   cursor: pointer;
+  color: black;
+  font-weight: 900;
+  font-size: 3em;
+  text-shadow: 2px 2px 1px white;
 }
 
 .land {
@@ -38,7 +42,7 @@
 }
 
 .mountain {
-  background-color: #D6D5D1;
+  background-color: rgb(199, 196, 190);
 }
 .sea {
   background-color: #006994;
@@ -63,4 +67,9 @@
 
 .player {
   opacity: 0.9;
+}
+
+.cpu {
+  color: red;
+  text-shadow: 2px 2px 1px black;
 }

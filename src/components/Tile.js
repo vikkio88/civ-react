@@ -18,7 +18,8 @@ class Tile extends Component {
             className += ` ${currentTile.type}`;
             if (currentTile.owner) {
                 className += ` ${currentTile.owner}`;
-                ownerFlag = `${ownerFlags[currentTile.owner]} ${currentTile.level}`;
+                ownerFlag = `${currentTile.level}`;
+                //ownerFlag = `${ownerFlags[currentTile.owner]} ${currentTile.level}`;
             }
             className += currentTile.actioned ? ' actioned' : '';
             background = tileHelper(currentTile).background();
@@ -29,7 +30,7 @@ class Tile extends Component {
                 key={`${row}_${col}`}
                 className={className}
                 onClick={() => onBoxClick ? onBoxClick(row, col) : null}
-                style={{ color: 'white', backgroundImage: `url(${background})` }}
+                style={{ backgroundImage: `url(${background})` }}
             >
                 {ownerFlag}
             </div>
