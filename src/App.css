@@ -49,7 +49,7 @@
 
 @keyframes yellowfade {
   from {
-    background: yellow;
+    background: rgba(255, 0, 0, 0.349);
   }
   to {
     background: unset;
@@ -57,9 +57,9 @@
 }
 
 .actioned {
-  animation: yellowfade 1s;
+  animation: yellowfade 0.5s;
 }
 
 .player {
-  opacity: 0.8;
+  opacity: 0.9;
 }

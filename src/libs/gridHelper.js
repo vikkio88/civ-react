@@ -33,7 +33,6 @@ export const gridHelper = grid => {
         cpuTurn(grid) {
             const row = randomizer.int(0, ROWS - 1);
             const col = randomizer.int(0, COLS - 1);
-            console.log(`Clicked ${row} ${col}`);
             grid[row][col] = this.clicked(row, col, CPU);
             return grid;
         }
